@@ -8,41 +8,33 @@ class Node {
 class LinkedList {
   constructor() {
     this.head = null;
+    this.tail = null
     this.size = 0;
   }
 
-  add(number) {
-    let node = new Node(number);
-    let currentNode;
-
-    if (this.head === null) {
-      this.head = node;
-
+  add(val){
+    let newNode = new Node(val)
+    
+    if(!this.head){
+        this.head = newNode
+        this.tail = this.head
     } else {
-      currentNode = this.head;
-
-      while (currentNode.next_node) {
-        currentNode = currentNode.next_node;
-      }
-      currentNode = currentNode.next_node;
+       this.tail.next_node = newNode
+       this.tail = newNode 
+     }
+     this.size++
+     return this
+   }
+  get(index){
+    if(index < 0 || index >= this.size) return null;
+    var counter = 0;
+    var current = this.head;
+    while(counter !== index){
+        current = current.next_node;
+        counter++;
     }
-    this.size++;
-  }
-
-  get(index) {
-    let currentNode = this.head;
-    let count = 0;
-    if (this.head === null) {
-      return -1;
-
-    } else {
-    while (count < index) {
-      count++;
-      currentNode = currentNode.next_node;
-    }
-    return currentNode.value;
-  }
-  }
+    return current.value;
+}
 }
 
 const list = new LinkedList();
