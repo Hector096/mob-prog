@@ -12,7 +12,7 @@ class LinkedList {
   }
 
   add(number) {
-    let node = Node(number);
+    let node = new Node(number);
     let currentNode;
 
     if (this.head === null) {
