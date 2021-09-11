@@ -32,12 +32,16 @@ class LinkedList {
   get(index) {
     let currentNode = this.head;
     let count = 0;
+    if (this.head === null) {
+      return -1;
 
+    } else {
     while (count < index) {
       count++;
       currentNode = currentNode.next_node;
     }
     return currentNode.value;
+  }
   }
 }
 
