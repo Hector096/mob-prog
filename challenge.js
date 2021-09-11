@@ -6,14 +6,38 @@ class Node {
 }
 
 class LinkedList {
-  // setup head and tail
+  constructor() {
+    this.head = null;
+    this.size = 0;
+  }
 
   add(number) {
-    // your code here
+    let node = Node(number);
+    let currentNode;
+
+    if (this.head === null) {
+      this.head = node;
+
+    } else {
+      currentNode = this.head;
+
+      while (currentNode.next_node) {
+        currentNode = currentNode.next_node;
+      }
+      currentNode = currentNode.next_node;
+    }
+    this.size++;
   }
 
   get(index) {
-    // your code here
+    let currentNode = this.head;
+    let count = 0;
+
+    while (count < index) {
+      count++;
+      currentNode = currentNode.next_node;
+    }
+    return currentNode.value;
   }
 }
 
