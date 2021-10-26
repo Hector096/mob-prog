@@ -6,35 +6,36 @@ class Node {
 }
 
 class LinkedList {
-  constructor() {
-    this.head = null;
-    this.tail = null
-    this.size = 0;
-  }
+ constructor(){
+   this.head = null;
+   this.tail = null;
+   this.size = 0 
+ }
 
-  add(val){
-    let newNode = new Node(val)
-    
-    if(!this.head){
-        this.head = newNode
-        this.tail = this.head
-    } else {
-       this.tail.next_node = newNode
-       this.tail = newNode 
-     }
-     this.size++
-     return this
-   }
-  get(index){
-    if(index < 0 || index >= this.size) return null;
-    var counter = 0;
-    var current = this.head;
-    while(counter !== index){
-        current = current.next_node;
-        counter++;
-    }
-    return current.value;
+add(val){
+  let newNode = new Node(val)
+  if(!this.head){
+    this.head = newNode
+    this.tail = this.head
+  }else{
+    this.tail.next_node = newNode
+    this.tail = newNode
+  }
+  this.size++
 }
+get(index){
+  if(index < 0 || index>= this.size) return null
+   var position = 0;
+   var currentPointer = this.head;
+   while(position!==index){
+     currentPointer = currentPointer.next_node;
+     position++;
+   } 
+   return currentPointer.value;
+}
+
+
+
 }
 
 const list = new LinkedList();
